@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#37384D"
+    android:background="#91EF58"
     android:orientation="vertical"
-    android:weightSum="3"
     tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="100dp"
         android:layout_marginTop="30dp"
         android:layout_weight="1"
         android:orientation="horizontal"
@@ -23,8 +22,8 @@
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:text="SCORE: 0"
-            android:textColor="#fff"
-            android:textSize="30sp"
+            android:textColor="#673AB7"
+            android:textSize="40sp"
             android:textStyle="italic|bold"
             android:id="@+id/txvscoreplay"/>
 
@@ -36,15 +35,15 @@
             android:layout_weight="1"
             android:gravity="right"
             android:text="BEST: 0"
-            android:textColor="#fff"
-            android:textSize="30sp"
+            android:textColor="#673AB7"
+            android:textSize="40sp"
             android:textStyle="italic|bold"
             android:id="@+id/txvbestscoreplay"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="200dp"
         android:layout_weight="1"
         android:orientation="vertical">
 
@@ -53,8 +52,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Time"
-            android:textColor="#fff"
-            android:textSize="40sp"
+            android:textColor="#F60303"
+            android:textSize="50sp"
             android:textStyle="bold"
             android:id="@+id/txvtime"/>
 
@@ -64,36 +63,62 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
             android:text="PHÉP TÍNH"
-            android:textColor="#fff"
-            android:textSize="55sp"
+            android:textColor="#9C27B0"
+            android:textSize="65sp"
             android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="300dp"
         android:layout_weight="1"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:paddingBottom="20dp"
         android:weightSum="2">
 
 
-        <Button
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:background="@drawable/imageviewdung"
-            android:layout_weight="1"
-            android:id="@+id/btn_dung"/>
-        <Button
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:background="@drawable/imageviewsai"
-            android:layout_weight="1"
-            android:id="@+id/btn_sai"/>
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/txvdapan"
+            android:layout_marginBottom="10dp"
+            android:text="99"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="60sp"
+            android:textColor="#FFFFFF"
+            android:id="@+id/btntl1"
+            android:onClick="OnClick1"
+            tools:ignore="OnClick" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/txvdapan_1"
+            android:layout_marginBottom="10dp"
+            android:text="101"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="60sp"
+            android:textColor="#FFFFFF"
+            android:id="@+id/btntl2"
+            android:onClick="OnClick2"
+            tools:ignore="OnClick"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/txvdapan_2"
+            android:layout_marginBottom="10dp"
+            android:text="100"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="60sp"
+            android:textColor="#FFFFFF"
+            android:id="@+id/btntl3"
+            android:onClick="OnClick3"
+            tools:ignore="OnClick"/>
 
     </LinearLayout>
 

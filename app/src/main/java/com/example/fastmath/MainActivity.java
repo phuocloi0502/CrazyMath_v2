@@ -27,12 +27,12 @@ public class MainActivity extends AppCompatActivity {
         mysounds = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
         //   homesound=mysounds.load(getApplicationContext(),R.raw.homeplay,1);
         clicksound = mysounds.load(getApplicationContext(), R.raw.click, 1);
-        MediaPlayer homepl = MediaPlayer.create(MainActivity.this, R.raw.homeplay);
+  //      MediaPlayer homepl = MediaPlayer.create(MainActivity.this, R.raw.homeplay);
 
      //   float log1=(float)(Math.log(maxVolume-50)/Math.log(maxVolume));
-        homepl.setVolume(1.0f,1.0f); //set volume takes two paramater
-        homepl.setLooping(true);
-        homepl.start();
+//        homepl.setVolume(1.0f,1.0f); //set volume takes two paramater
+//        homepl.setLooping(true);
+//        homepl.start();
 
         pr = getSharedPreferences("luudiemhome", MODE_PRIVATE);
         Intent laydiem = this.getIntent();
