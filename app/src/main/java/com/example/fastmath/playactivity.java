@@ -7,6 +7,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -20,13 +22,12 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class playactivity extends AppCompatActivity {
-    private int number1, number2, number3, answer, score, bestscoreCurrent, manswer;
+    public int number1, number2, number3, answer, score, bestscoreCurrent, manswer;
     private int lv = 0;
     private boolean isResult, isCheck;
     TextView txvPhepTinh, txvTime, txvScroePlay, txvBestScrore;
     TextView btnTL1, btnTL2, btnTL3;
     CountDownTimer t;
-    Question mQuestion;
     SharedPreferences luudiemso;
     Random mrandom;
     Typeface typeface;
@@ -34,6 +35,8 @@ public class playactivity extends AppCompatActivity {
     ArrayList<Integer> arrDapAn;
     ArrayList<Integer> listint;
     ArrayList<Integer> hienthi;
+    public SoundPool mysounds;
+    public int rightsound,wrongsound, clicksound;
 
 
     @Override
@@ -43,6 +46,7 @@ public class playactivity extends AppCompatActivity {
         setContentView(R.layout.activity_playactivity);
         anhxa();
         init();
+        showbestscore();
         cauhoi(lv);
         setClick();
     }
@@ -64,20 +68,55 @@ public class playactivity extends AppCompatActivity {
         int gt = Integer.parseInt(btn.getText().toString());
         if (gt == answer) {
             t.cancel();
+            soundRight();
             arrDapAn.clear();
             hienthi.clear();
             listint.clear();
-            score++;
-            txvScroePlay.setText(String.valueOf(score));
+
             lv++;
-            cauhoi(lv);
+            new CountDownTimer(700, 100) {
+                @Override
+                public void onTick(long millisUntilFinished) {
+
+                }
+
+                @Override
+                public void onFinish() {
+
+                    score++;
+                    txvScroePlay.setText("SCORE: "+String.valueOf(score));
+                    if(bestscoreCurrent<score){
+                        luudiem();
+                    }
+                    cauhoi(lv);
+                }
+            }.start();
+
         } else {
-            gameover(score, bestscoreCurrent);
+            soundWrong();
+            new CountDownTimer(700, 100) {
+                @Override
+                public void onTick(long millisUntilFinished) {
+
+                }
+
+                @Override
+                public void onFinish() {
+
+                    gameover(score, bestscoreCurrent);
+                }
+            }.start();
         }
+    }
+    private void soundRight() {
+        mysounds.play(rightsound, 1.0f, 1.0f, 1, 0, 1);
+    }
+    private void soundWrong() {
+        mysounds.play(wrongsound, 1.0f, 1.0f, 1, 0, 1);
     }
 
     private void init() {
-      //  luudiemso = getSharedPreferences("Diemsogame", MODE_PRIVATE);
+        luudiemso = getSharedPreferences("Diemsogame", Context.MODE_PRIVATE);
         mrandom = new Random();
         arrDapAn = new ArrayList<>();
         arrbtnDapAn = new ArrayList<>();
@@ -86,6 +125,10 @@ public class playactivity extends AppCompatActivity {
         arrbtnDapAn.add(btnTL3);
         listint = new ArrayList<>();
         hienthi = new ArrayList<>();
+        mysounds = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
+        clicksound = mysounds.load(getApplicationContext(), R.raw.click_2, 1);
+        wrongsound=mysounds.load(getApplicationContext(), R.raw.wrong, 1);
+        rightsound=mysounds.load(getApplicationContext(), R.raw.right, 1);
     }
 
     public void anhxa() {
@@ -99,27 +142,54 @@ public class playactivity extends AppCompatActivity {
     }
 
 
-    public void luudiem() {
-        bestscoreCurrent = luudiemso.getInt("diemcuatoi", 0);
+    public void showbestscore() {
+        bestscoreCurrent = luudiemso.getInt("Diemsogame", 0);
         txvBestScrore.setText("BEST: " + String.valueOf(bestscoreCurrent));
+    }
+    public void luudiem() {
+        SharedPreferences.Editor editor = luudiemso.edit();
+        editor.putInt("Diemsogame",score);
+        editor.commit();
     }
 
     public void createquestion(int s1, int s2) {
 
-        int dan1, dap2;
-        do {
-            number1 = mrandom.nextInt(s1);
-            number2 = mrandom.nextInt(s2);
-            answer = number1 + number2;
-            dan1 = mrandom.nextInt(s1) + mrandom.nextInt(number2);
-            dap2 = mrandom.nextInt(s1) + mrandom.nextInt(number2);
-
-        } while (answer == dan1 || answer == dap2 || dan1 == dap2);
+        int dan1, dap2, stt;
+        stt = mrandom.nextInt(3);
+        number1 = mrandom.nextInt(s1);
+        number2 = mrandom.nextInt(s2);
+        answer = number1 + number2;
+        switch (stt) {
+            case 0: {
+                dan1 = answer + 1;
+                dap2 = answer - 1;
+                arrDapAn.add(answer);
+                arrDapAn.add(dan1);
+                arrDapAn.add(dap2);
+                break;
+            }
+            case 1: {
+                dan1 = answer - 2;
+                dap2 = answer - 1;
+                arrDapAn.add(answer);
+                arrDapAn.add(dan1);
+                arrDapAn.add(dap2);
+                break;
+            }
+            case 2: {
+                dan1 = answer + 2;
+                dap2 = answer + 1;
+                arrDapAn.add(answer);
+                arrDapAn.add(dan1);
+                arrDapAn.add(dap2);
+                break;
+            }
+            default: {
+                Toast.makeText(playactivity.this,"Toang roi !",Toast.LENGTH_SHORT).show();
+            }
+        }
         String result = number1 + " + " + number2 + " = ?";
         txvPhepTinh.setText(result);
-        arrDapAn.add(answer);
-        arrDapAn.add(dan1);
-        arrDapAn.add(dap2);
         hienthidapan();
         settime();
     }
@@ -177,14 +247,12 @@ public class playactivity extends AppCompatActivity {
     }
 
     void gameover(int score, int bestscore) {
+        if(bestscore<score){
+            luudiem();
+        }
         t.cancel();
-        // gui qua overlayout
         Intent intent = new Intent(playactivity.this, overactivity.class);
         intent.putExtra("d", String.valueOf(score));
-        intent.putExtra("dcao", String.valueOf(bestscore));
-        // gui qua mainlayout
-//        Intent intenthome=new Intent(playactivity.this,MainActivity.class);
-//        intenthome.putExtra("diemhome",String.valueOf(bestscore));
         finish();
         startActivity(intent);
     }
