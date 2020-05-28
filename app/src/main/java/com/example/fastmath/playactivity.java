@@ -32,6 +32,8 @@ public class playactivity extends AppCompatActivity {
     Typeface typeface;
     ArrayList<TextView> arrbtnDapAn;
     ArrayList<Integer> arrDapAn;
+    ArrayList<Integer> listint;
+    ArrayList<Integer> hienthi;
 
 
     @Override
@@ -62,6 +64,9 @@ public class playactivity extends AppCompatActivity {
         int gt = Integer.parseInt(btn.getText().toString());
         if (gt == answer) {
             t.cancel();
+            arrDapAn.clear();
+            hienthi.clear();
+            listint.clear();
             score++;
             txvScroePlay.setText(String.valueOf(score));
             lv++;
@@ -79,6 +84,8 @@ public class playactivity extends AppCompatActivity {
         arrbtnDapAn.add(btnTL1);
         arrbtnDapAn.add(btnTL2);
         arrbtnDapAn.add(btnTL3);
+        listint = new ArrayList<>();
+        hienthi = new ArrayList<>();
     }
 
     public void anhxa() {
@@ -119,13 +126,12 @@ public class playactivity extends AppCompatActivity {
 
     public void hienthidapan() {
 
-        ArrayList<Integer> listint = new ArrayList<>();//de random ngau nhien tu 0-2 ma khong trung
+        //de random ngau nhien tu 0-2 ma khong trung
         for (int i = 0; i < 3; i++) {
             listint.add(i);
 
         }
         int n = listint.size();
-        ArrayList<Integer> hienthi = new ArrayList<>();
         while (n > 0) {
             int vt = listint.remove(mrandom.nextInt(n));//random ngau nhien tu 0-2 ma khong trung
             Integer a = arrDapAn.get(vt);//lay gia tri ngau nhien trong arrDapAn
