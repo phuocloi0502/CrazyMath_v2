@@ -65,6 +65,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             }
             case R.id.btnabout: {
+                Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+                startActivity(intent);
                 soundClick();
                 break;
             }
