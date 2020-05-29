@@ -3,6 +3,7 @@ package com.example.fastmath;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
@@ -14,7 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class overactivity extends AppCompatActivity {
-    TextView txvmyScrore;
+    TextView txvmyScrore,txvYourcore,txvGameover;
     Button btn_Try, btn_Home;
     String myCore,mybest;
     SoundPool mysounds;
@@ -26,8 +27,13 @@ public class overactivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_overactivity);
         txvmyScrore = findViewById(R.id.txvmyscore);
+        txvYourcore=findViewById(R.id.txvyourcore);
+        txvGameover=findViewById(R.id.txvgameover);
         btn_Home = findViewById(R.id.btnhome);
         btn_Try = findViewById(R.id.btntryagain);
+
+        setfont();
+
         mysounds = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
         clicksound = mysounds.load(getApplicationContext(), R.raw.click_2, 1);
         // lay diem
@@ -55,6 +61,15 @@ public class overactivity extends AppCompatActivity {
                 overactivity.this.finish();
             }
         });
+    }
+
+    private void setfont() {
+        Typeface typeface=Typeface.createFromAsset(getAssets(),"font/UVNBanhMi.TTF");
+        txvmyScrore.setTypeface(typeface);
+        txvYourcore.setTypeface(typeface);
+        txvGameover.setTypeface(typeface);
+        btn_Try.setTypeface(typeface);
+        btn_Home.setTypeface(typeface);
     }
 
     @Override

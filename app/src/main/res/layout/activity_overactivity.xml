@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#37384D"
+    android:background="#2196F3"
     android:orientation="vertical"
     android:weightSum="3"
     tools:context=".MainActivity">
@@ -20,19 +20,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="GAME"
-            android:textColor="#F44336"
+            android:text="GAME OVER"
+            android:textColor="#3CF436"
             android:textSize="70sp"
-            android:textStyle="italic|bold" />
+            android:textStyle="italic|bold"
+            android:id="@+id/txvgameover"/>
 
-        <TextView
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="OVER"
-            android:textColor="#F44336"
-            android:textSize="70sp"
-            android:textStyle="italic|bold" />
+            android:layout_height="match_parent"
+            android:src="@drawable/gameoverimg"
+            />
     </LinearLayout>
 
     <LinearLayout
@@ -49,7 +47,8 @@
             android:text="YOUR SCORE"
             android:textColor="#fff"
             android:textSize="50sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:id="@+id/txvyourcore"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

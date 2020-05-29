@@ -45,10 +45,22 @@ public class playactivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_playactivity);
         anhxa();
+        setfont();
         init();
         showbestscore();
         cauhoi(lv);
         setClick();
+    }
+
+    private void setfont() {
+        Typeface typeface=Typeface.createFromAsset(getAssets(),"font/UVNBanhMi.TTF");
+        txvScroePlay.setTypeface(typeface);
+        txvBestScrore.setTypeface(typeface);
+        txvPhepTinh.setTypeface(typeface);
+        txvTime.setTypeface(typeface);
+        btnTL1.setTypeface(typeface);
+        btnTL2.setTypeface(typeface);
+        btnTL3.setTypeface(typeface);
     }
 
     private void setClick() {

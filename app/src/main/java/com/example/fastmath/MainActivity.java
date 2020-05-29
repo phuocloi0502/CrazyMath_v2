@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
@@ -16,7 +17,7 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity implements View.OnClickListener {
     Button btnPlay, btnAbout;
-    TextView txvScore;
+    TextView txvScore,txvNamegame,txvNamegame1,txvBestcore,txvScorehome;
     SharedPreferences pr;
     Integer score;
     //am thanh
@@ -28,10 +29,24 @@ public class MainActivity extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
         init();
         anhxa();
+        setfont();
         setClick();
 
+    }
+
+    private void setfont() {
+        Typeface typeface=Typeface.createFromAsset(getAssets(),"font/UVNBanhMi.TTF");
+        txvNamegame.setTypeface(typeface);
+        txvNamegame1.setTypeface(typeface);
+        txvBestcore.setTypeface(typeface);
+        txvScorehome.setTypeface(typeface);
+        btnPlay.setTypeface(typeface);
+        btnAbout.setTypeface(typeface);
     }
 
     public void setClick() {
@@ -100,6 +115,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
         txvScore = findViewById(R.id.txvscorehome);
         btnPlay = findViewById(R.id.btnplay);
         btnAbout = findViewById(R.id.btnabout);
+        txvNamegame=findViewById(R.id.txvnamegame);
+        txvNamegame1=findViewById(R.id.txvnamegame1);
+        txvBestcore=findViewById(R.id.txvbestcore);
+        txvScorehome=findViewById(R.id.txvscorehome);
     }
 
     public void showbestscore() {

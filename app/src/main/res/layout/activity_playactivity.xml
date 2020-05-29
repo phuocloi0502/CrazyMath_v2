@@ -23,7 +23,7 @@
             android:layout_weight="1"
             android:text="SCORE: 0"
             android:textColor="#673AB7"
-            android:textSize="40sp"
+            android:textSize="30sp"
             android:textStyle="italic|bold"
             android:id="@+id/txvscoreplay"/>
 
@@ -36,7 +36,7 @@
             android:gravity="right"
             android:text="BEST: 0"
             android:textColor="#673AB7"
-            android:textSize="40sp"
+            android:textSize="30sp"
             android:textStyle="italic|bold"
             android:id="@+id/txvbestscoreplay"/>
     </LinearLayout>
