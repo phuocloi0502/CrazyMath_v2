@@ -167,45 +167,81 @@ public class playactivity extends AppCompatActivity {
     public void createquestion(int s1, int s2) {
 
         int dan1, dap2, stt;
+        String result="";
         stt = mrandom.nextInt(3);
         number1 = mrandom.nextInt(s1);
         number2 = mrandom.nextInt(s2);
-        answer = number1 + number2;
-        switch (stt) {
-            case 0: {
-                dan1 = answer + 1;
-                dap2 = answer - 1;
-                arrDapAn.add(answer);
-                arrDapAn.add(dan1);
-                arrDapAn.add(dap2);
-                break;
+        isCheck=mrandom.nextBoolean();
+        if(isCheck){
+            answer = number1 + number2;
+            switch (stt) {
+                case 0: {
+                    dan1 = answer + 1;
+                    dap2 = answer - 1;
+                    arrDapAn.add(answer);
+                    arrDapAn.add(dan1);
+                    arrDapAn.add(dap2);
+                    break;
+                }
+                case 1: {
+                    dan1 = answer - 2;
+                    dap2 = answer - 1;
+                    arrDapAn.add(answer);
+                    arrDapAn.add(dan1);
+                    arrDapAn.add(dap2);
+                    break;
+                }
+                case 2: {
+                    dan1 = answer + 2;
+                    dap2 = answer + 1;
+                    arrDapAn.add(answer);
+                    arrDapAn.add(dan1);
+                    arrDapAn.add(dap2);
+                    break;
+                }
+                default: {
+                    Toast.makeText(playactivity.this,"Toang roi !",Toast.LENGTH_SHORT).show();
+                }
             }
-            case 1: {
-                dan1 = answer - 2;
-                dap2 = answer - 1;
-                arrDapAn.add(answer);
-                arrDapAn.add(dan1);
-                arrDapAn.add(dap2);
-                break;
-            }
-            case 2: {
-                dan1 = answer + 2;
-                dap2 = answer + 1;
-                arrDapAn.add(answer);
-                arrDapAn.add(dan1);
-                arrDapAn.add(dap2);
-                break;
-            }
-            default: {
-                Toast.makeText(playactivity.this,"Toang roi !",Toast.LENGTH_SHORT).show();
-            }
+           result= number1 + " + " + number2 + " = ?";
         }
-        String result = number1 + " + " + number2 + " = ?";
+        else {
+            answer = number1 - number2;
+            switch (stt) {
+                case 0: {
+                    dan1 = answer + 1;
+                    dap2 = answer - 1;
+                    arrDapAn.add(answer);
+                    arrDapAn.add(dan1);
+                    arrDapAn.add(dap2);
+                    break;
+                }
+                case 1: {
+                    dan1 = answer - 2;
+                    dap2 = answer - 1;
+                    arrDapAn.add(answer);
+                    arrDapAn.add(dan1);
+                    arrDapAn.add(dap2);
+                    break;
+                }
+                case 2: {
+                    dan1 = answer + 2;
+                    dap2 = answer + 1;
+                    arrDapAn.add(answer);
+                    arrDapAn.add(dan1);
+                    arrDapAn.add(dap2);
+                    break;
+                }
+                default: {
+                    Toast.makeText(playactivity.this,"Toang roi !",Toast.LENGTH_SHORT).show();
+                }
+            }
+            result= number1 + " - " + number2 + " = ?";
+        }
         txvPhepTinh.setText(result);
         hienthidapan();
         settime();
     }
-
     public void hienthidapan() {
 
         //de random ngau nhien tu 0-2 ma khong trung
@@ -239,7 +275,7 @@ public class playactivity extends AppCompatActivity {
     }
 
     public void settime() {
-        t = new CountDownTimer(6000 + 1, 100) {
+        t = new CountDownTimer(4000 + 1, 100) {
             @Override
             public void onTick(long millisUntilFinished) {
                 txvTime.setText("" + millisUntilFinished / 1000);
