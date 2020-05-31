@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#91EF58"
+    android:background="#1F5363"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -22,7 +22,7 @@
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:text="SCORE: 0"
-            android:textColor="#673AB7"
+            android:textColor="#FFFFFF"
             android:textSize="30sp"
             android:textStyle="italic|bold"
             android:id="@+id/txvscoreplay"/>
@@ -35,7 +35,7 @@
             android:layout_weight="1"
             android:gravity="right"
             android:text="BEST: 0"
-            android:textColor="#673AB7"
+            android:textColor="#FFFFFF"
             android:textSize="30sp"
             android:textStyle="italic|bold"
             android:id="@+id/txvbestscoreplay"/>
@@ -65,7 +65,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:text="PHÉP TÍNH"
-            android:textColor="#9C27B0"
+            android:textColor="#FFFFFF"
             android:textSize="65sp"
             android:textStyle="bold" />
     </LinearLayout>

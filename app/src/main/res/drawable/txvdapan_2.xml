@@ -3,20 +3,20 @@
     <item android:state_pressed="true">
         <shape xmlns:android="http://schemas.android.com/apk/res/android">
             <stroke android:width="5dp"
-                android:color="#E3D348">
+                android:color="#45D8CA">
             </stroke>
             <corners android:radius="30dp"></corners>
-            <solid android:color="#EAD62C"></solid>
+            <solid android:color="#009688"></solid>
         </shape>
 
     </item>
     <item>
         <shape xmlns:android="http://schemas.android.com/apk/res/android">
             <stroke android:width="3dp"
-                android:color="#E3D348">
+                android:color="#45D8CA">
             </stroke>
             <corners android:radius="30dp"></corners>
-            <solid android:color="#FFEB3B"></solid>
+            <solid android:color="#009688"></solid>
         </shape>
     </item>
 </selector>
