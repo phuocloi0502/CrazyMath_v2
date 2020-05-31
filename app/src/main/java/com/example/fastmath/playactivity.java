@@ -56,11 +56,6 @@ public class playactivity extends AppCompatActivity {
         Typeface typeface=Typeface.createFromAsset(getAssets(),"font/UVNBanhMi.TTF");
         txvScroePlay.setTypeface(typeface);
         txvBestScrore.setTypeface(typeface);
-        txvPhepTinh.setTypeface(typeface);
-        txvTime.setTypeface(typeface);
-        btnTL1.setTypeface(typeface);
-        btnTL2.setTypeface(typeface);
-        btnTL3.setTypeface(typeface);
     }
 
     private void setClick() {

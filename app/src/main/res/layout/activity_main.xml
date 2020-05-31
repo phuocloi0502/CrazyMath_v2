@@ -4,93 +4,182 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#009688"
+    android:background="#1F5363"
     android:orientation="vertical"
-    android:weightSum="3"
-    tools:context=".MainActivity">
+    android:weightSum="8"
+    tools:context=".OptionActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_weight="3"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:gravity="center"
-            android:text="CRAZY MATH"
+            android:text="Chọn phép tính"
             android:textColor="#fff"
             android:textSize="50sp"
-            android:textStyle="italic|bold"
-            android:id="@+id/txvnamegame"/>
+            android:textStyle="bold"
+            android:id="@+id/txvchonpt"/>
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="GAME"
-            android:textColor="#fff"
-            android:textSize="50sp"
-            android:textStyle="italic|bold"
-            android:id="@+id/txvnamegame1"/>
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+        </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        android:layout_weight="2"
+        android:weightSum="2">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="BEST SCORE"
-            android:textColor="#fff"
-            android:textSize="50sp"
-            android:textStyle="bold"
-            android:id="@+id/txvbestcore"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="SCORE"
-            android:textColor="#FFFFFF"
-            android:textSize="55sp"
-            android:textStyle="bold"
-            android:id="@+id/txvscorehome"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:src="@drawable/cong"
+                    android:layout_marginBottom="5dp"
+                    android:id="@+id/btncong">
+                </ImageView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BEST: "
+                    android:layout_marginBottom="5dp"
+                    android:textSize="25sp"
+                    android:textColor="#fff"
+                    android:textStyle="bold"
+                    android:layout_gravity="center|bottom"
+                    android:id="@+id/txvbestcong"/>
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:src="@drawable/chia"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/btnchia">
+                </ImageView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BEST: "
+                    android:layout_marginBottom="5dp"
+                    android:textSize="25sp"
+                    android:textColor="#fff"
+                    android:textStyle="bold"
+                    android:layout_gravity="center|bottom"
+                    android:id="@+id/txvbestchia"/>
+            </FrameLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:src="@drawable/tru"
+                    android:layout_marginBottom="5dp"
+                    android:id="@+id/btntru">
+                </ImageView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BEST: "
+                    android:layout_marginBottom="5dp"
+                    android:textSize="25sp"
+                    android:textColor="#fff"
+                    android:textStyle="bold"
+                    android:layout_gravity="center|bottom"
+                    android:id="@+id/txvbesttru"/>
+            </FrameLayout>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:src="@drawable/nhan"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/btnnhan">
+                </ImageView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BEST: "
+                    android:layout_marginBottom="5dp"
+                    android:textSize="25sp"
+                    android:textColor="#fff"
+                    android:textStyle="bold"
+                    android:layout_gravity="center|bottom"
+                    android:id="@+id/txvbestnhan"/>
+            </FrameLayout>
+
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:paddingBottom="20dp">
-
+        android:layout_weight="3">
         <Button
-            android:layout_width="match_parent"
+            android:layout_width="200dp"
             android:layout_height="80dp"
-            android:background="@drawable/button_play_main"
-            android:text="PLAY"
-            android:textColor="#ffff"
-            android:textSize="55sp"
-            android:textStyle="bold"
-            android:id="@+id/btnplay"/>
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_marginTop="20dp"
             android:background="@drawable/button_about_main"
             android:text="About"
             android:textColor="#ffff"
-            android:textSize="55sp"
+            android:textSize="40sp"
             android:textStyle="bold"
-            android:id="@+id/btnabout"/>
+            android:id="@+id/btnabout"
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_gravity="center"
+            android:layout_marginLeft="100dp"/>
+
     </LinearLayout>
+
 
 </LinearLayout>

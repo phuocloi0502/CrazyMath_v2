@@ -13,11 +13,13 @@ import android.media.SoundPool;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends Activity implements View.OnClickListener {
-    Button btnPlay, btnAbout;
-    TextView txvScore,txvNamegame,txvNamegame1,txvBestcore,txvScorehome;
+    Button btnAbout;
+    TextView txvChonpt, txvBestCong, txvBesTru, txvBestNhan, txvBestChia;
+    ImageView btnCong, btnTru, btnNhan, btnChia;
     SharedPreferences pr;
     Integer score;
     //am thanh
@@ -29,9 +31,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-
         init();
         anhxa();
         setfont();
@@ -39,39 +38,66 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     }
 
+    public void anhxa() {
+        btnAbout=findViewById(R.id.btnabout);
+        btnCong=findViewById(R.id.btncong);
+        btnTru=findViewById(R.id.btntru);
+        btnNhan=findViewById(R.id.btnnhan);
+        btnChia=findViewById(R.id.btnchia);
+        txvChonpt=findViewById(R.id.txvchonpt);
+        txvBestCong=findViewById(R.id.txvbestcong);
+        txvBesTru=findViewById(R.id.txvbesttru);
+        txvBestNhan=findViewById(R.id.txvbestnhan);
+        txvBestChia=findViewById(R.id.txvbestchia);
+    }
+
     private void setfont() {
-        Typeface typeface=Typeface.createFromAsset(getAssets(),"font/UVNBanhMi.TTF");
-        txvNamegame.setTypeface(typeface);
-        txvNamegame1.setTypeface(typeface);
-        txvBestcore.setTypeface(typeface);
-        txvScorehome.setTypeface(typeface);
-        btnPlay.setTypeface(typeface);
-        btnAbout.setTypeface(typeface);
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "font/UVNBanhMi.TTF");
+        txvChonpt.setTypeface(typeface);
     }
 
     public void setClick() {
-        btnPlay.setOnClickListener(this);
         btnAbout.setOnClickListener(this);
+        btnCong.setOnClickListener(this);
+        btnTru.setOnClickListener(this);
+        btnNhan.setOnClickListener(this);
+        btnChia.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btnplay: {
-
+            case R.id.btnabout: {
                 soundClick();
-                Intent intent = new Intent(MainActivity.this, playactivity.class);
+                Intent intent = new Intent(MainActivity.this, AboutActivity.class);
                 startActivity(intent);
                 break;
             }
-            case R.id.btnabout: {
-                Intent intent = new Intent(MainActivity.this, OptionActivity.class);
+            case R.id.btncong: {
+                Intent intent = new Intent(MainActivity.this, playactivity.class);
+                startActivity(intent);
+                soundClick();
+                break;
+            }
+            case R.id.btntru: {
+                Intent intent = new Intent(MainActivity.this, playactivity.class);
+                startActivity(intent);
+                soundClick();
+                break;
+            }
+            case R.id.btnnhan: {
+                Intent intent = new Intent(MainActivity.this, playactivity.class);
+                startActivity(intent);
+                soundClick();
+                break;
+            }
+            case R.id.btnchia: {
+                Intent intent = new Intent(MainActivity.this, playactivity.class);
                 startActivity(intent);
                 soundClick();
                 break;
             }
             default: {
-
             }
         }
     }
@@ -113,19 +139,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
         homepl.start();
     }
 
-    public void anhxa() {
-        txvScore = findViewById(R.id.txvscorehome);
-        btnPlay = findViewById(R.id.btnplay);
-        btnAbout = findViewById(R.id.btnabout);
-        txvNamegame=findViewById(R.id.txvnamegame);
-        txvNamegame1=findViewById(R.id.txvnamegame1);
-        txvBestcore=findViewById(R.id.txvbestcore);
-        txvScorehome=findViewById(R.id.txvscorehome);
-    }
 
     public void showbestscore() {
-        score = pr.getInt("Diemsogame", 0);
-        txvScore.setText("" + score);
+//        score = pr.getInt("Diemsogame", 0);
+//        txvScore.setText("" + score);
     }
 
 }
