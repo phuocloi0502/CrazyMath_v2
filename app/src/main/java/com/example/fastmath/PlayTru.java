@@ -21,7 +21,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class playactivity extends AppCompatActivity {
+public class PlayTru extends AppCompatActivity {
     public int number1, number2, answer, score, bestscoreCurrent;
     private int lv = 0;
     private boolean isCheck;
@@ -155,13 +155,13 @@ public class playactivity extends AppCompatActivity {
 
 
     public void showbestscore() {
-        bestscoreCurrent = luudiemso.getInt("bestcong", 0);
+        bestscoreCurrent = luudiemso.getInt("besttru", 0);
         txvBestScrore.setText("BEST: " + String.valueOf(bestscoreCurrent));
     }
 
     public void luudiem() {
         SharedPreferences.Editor editor = luudiemso.edit();
-        editor.putInt("bestcong", score);
+        editor.putInt("besttru", score);
         editor.commit();
     }
 
@@ -172,7 +172,7 @@ public class playactivity extends AppCompatActivity {
         stt = mrandom.nextInt(3);
         number1 = mrandom.nextInt(s1);
         number2 = mrandom.nextInt(s2);
-        answer = number1 + number2;
+        answer = number1 - number2;
         switch (stt) {
             case 0: {
                 dan1 = answer + 1;
@@ -199,13 +199,14 @@ public class playactivity extends AppCompatActivity {
                 break;
             }
             default: {
-                Toast.makeText(playactivity.this, "Toang roi !", Toast.LENGTH_SHORT).show();
+                Toast.makeText(PlayTru.this, "Toang roi !", Toast.LENGTH_SHORT).show();
             }
         }
-        result = number1 + " + " + number2 + " = ?";
+        result = number1 + " - " + number2 + " = ?";
         txvPhepTinh.setText(result);
         hienthidapan();
         settime();
+
 
     }
 
@@ -267,7 +268,7 @@ public class playactivity extends AppCompatActivity {
             luudiem();
         }
         t.cancel();
-        Intent intent = new Intent(playactivity.this, overactivity.class);
+        Intent intent = new Intent(PlayTru.this, OverTru.class);
         intent.putExtra("d", String.valueOf(score));
         finish();
         startActivity(intent);

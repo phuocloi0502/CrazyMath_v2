@@ -21,7 +21,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     TextView txvChonpt, txvBestCong, txvBesTru, txvBestNhan, txvBestChia;
     ImageView btnCong, btnTru, btnNhan, btnChia;
     SharedPreferences pr;
-    Integer score;
+    Integer scorecong,scoretru,scorenhan,scorechia;
     //am thanh
     public SoundPool mysounds;
     public int clicksound;
@@ -80,19 +80,19 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             }
             case R.id.btntru: {
-                Intent intent = new Intent(MainActivity.this, playactivity.class);
+                Intent intent = new Intent(MainActivity.this, PlayTru.class);
                 startActivity(intent);
                 soundClick();
                 break;
             }
             case R.id.btnnhan: {
-                Intent intent = new Intent(MainActivity.this, playactivity.class);
+                Intent intent = new Intent(MainActivity.this, PlayNhan.class);
                 startActivity(intent);
                 soundClick();
                 break;
             }
             case R.id.btnchia: {
-                Intent intent = new Intent(MainActivity.this, playactivity.class);
+                Intent intent = new Intent(MainActivity.this, PlayChia.class);
                 startActivity(intent);
                 soundClick();
                 break;
@@ -139,10 +139,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
         homepl.start();
     }
 
-
     public void showbestscore() {
-//        score = pr.getInt("Diemsogame", 0);
-//        txvScore.setText("" + score);
+        scorecong = pr.getInt("bestcong", 0);
+        scoretru = pr.getInt("besttru", 0);
+        scorenhan = pr.getInt("bestnhan", 0);
+        scorechia = pr.getInt("bestchia", 0);
+        txvBestCong.setText("BEST: " + scorecong);
+        txvBesTru.setText("BEST: " + scoretru);
+        txvBestNhan.setText("BEST: " + scorenhan);
+        txvBestChia.setText("BEST: " + scorechia);
     }
 
 }

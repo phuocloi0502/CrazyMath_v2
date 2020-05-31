@@ -21,7 +21,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class playactivity extends AppCompatActivity {
+public class PlayChia extends AppCompatActivity {
     public int number1, number2, answer, score, bestscoreCurrent;
     private int lv = 0;
     private boolean isCheck;
@@ -155,13 +155,13 @@ public class playactivity extends AppCompatActivity {
 
 
     public void showbestscore() {
-        bestscoreCurrent = luudiemso.getInt("bestcong", 0);
+        bestscoreCurrent = luudiemso.getInt("bestchia", 0);
         txvBestScrore.setText("BEST: " + String.valueOf(bestscoreCurrent));
     }
 
     public void luudiem() {
         SharedPreferences.Editor editor = luudiemso.edit();
-        editor.putInt("bestcong", score);
+        editor.putInt("bestchia", score);
         editor.commit();
     }
 
@@ -170,9 +170,13 @@ public class playactivity extends AppCompatActivity {
         int dan1, dap2, stt;
         String result = "";
         stt = mrandom.nextInt(3);
-        number1 = mrandom.nextInt(s1);
-        number2 = mrandom.nextInt(s2);
-        answer = number1 + number2;
+        do {
+            number1 = mrandom.nextInt(s1);
+            while (number2 == 0) {
+                number2 = mrandom.nextInt(s2);
+            }
+        } while ((number1 % number2) != 0 || number1 < number2);
+        answer = number1 / number2;
         switch (stt) {
             case 0: {
                 dan1 = answer + 1;
@@ -199,13 +203,14 @@ public class playactivity extends AppCompatActivity {
                 break;
             }
             default: {
-                Toast.makeText(playactivity.this, "Toang roi !", Toast.LENGTH_SHORT).show();
+                Toast.makeText(PlayChia.this, "Toang roi !", Toast.LENGTH_SHORT).show();
             }
         }
-        result = number1 + " + " + number2 + " = ?";
+        result = number1 + " ÷ " + number2 + " = ?";
         txvPhepTinh.setText(result);
         hienthidapan();
         settime();
+
 
     }
 
@@ -252,7 +257,6 @@ public class playactivity extends AppCompatActivity {
 
                 }
             }
-
             @Override
             public void onFinish() {
                 gameover(score, bestscoreCurrent);
@@ -267,7 +271,7 @@ public class playactivity extends AppCompatActivity {
             luudiem();
         }
         t.cancel();
-        Intent intent = new Intent(playactivity.this, overactivity.class);
+        Intent intent = new Intent(PlayChia.this, OverChia.class);
         intent.putExtra("d", String.valueOf(score));
         finish();
         startActivity(intent);

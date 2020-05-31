@@ -9,6 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".PlayChia"></activity>
+        <activity android:name=".PlayNhan" />
+        <activity android:name=".PlayTru" />
+        <activity android:name=".OverChia" />
+        <activity android:name=".OverNhan" />
+        <activity android:name=".OverTru" />
         <activity android:name=".AboutActivity" />
         <activity android:name=".overactivity" />
         <activity android:name=".playactivity" />
