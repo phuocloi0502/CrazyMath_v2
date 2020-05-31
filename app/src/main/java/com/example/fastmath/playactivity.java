@@ -47,6 +47,7 @@ public class playactivity extends AppCompatActivity {
         anhxa();
         setfont();
         init();
+        sethienbutton();
         showbestscore();
         cauhoi(lv);
         setClick();
@@ -62,6 +63,7 @@ public class playactivity extends AppCompatActivity {
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                setanbutton();
                 kiemtra((TextView) v);
             }
 
@@ -95,6 +97,7 @@ public class playactivity extends AppCompatActivity {
                     if(bestscoreCurrent<score){
                         luudiem();
                     }
+                    sethienbutton();
                     cauhoi(lv);
                 }
             }.start();
@@ -109,7 +112,6 @@ public class playactivity extends AppCompatActivity {
 
                 @Override
                 public void onFinish() {
-
                     gameover(score, bestscoreCurrent);
                 }
             }.start();
@@ -275,6 +277,7 @@ public class playactivity extends AppCompatActivity {
             public void onTick(long millisUntilFinished) {
                 txvTime.setText("" + millisUntilFinished / 1000);
                 if ((millisUntilFinished / 1000 < 1)) {
+                    setanbutton();
                     txvTime.setText("Hết giờ");
 
                 }
@@ -289,7 +292,7 @@ public class playactivity extends AppCompatActivity {
         t.start();
     }
 
-    void gameover(int score, int bestscore) {
+   public void gameover(int score, int bestscore) {
         if(bestscore<score){
             luudiem();
         }
@@ -299,4 +302,17 @@ public class playactivity extends AppCompatActivity {
         finish();
         startActivity(intent);
     }
+    public void setanbutton(){
+        btnTL1.setEnabled(false);
+        btnTL2.setEnabled(false);
+        btnTL3.setEnabled(false);
+
+
+    }
+    public void sethienbutton(){
+        btnTL1.setEnabled(true);
+        btnTL2.setEnabled(true);
+        btnTL3.setEnabled(true);
+    }
+
 }
