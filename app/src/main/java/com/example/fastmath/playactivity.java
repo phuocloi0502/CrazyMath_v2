@@ -24,14 +24,11 @@ import java.util.Random;
 public class playactivity extends AppCompatActivity {
     public int number1, number2, answer, score, bestscoreCurrent;
     private int lv = 0;
-    private boolean isCheck;
-    public String pt = "";
     TextView txvPhepTinh, txvTime, txvScroePlay, txvBestScrore;
     TextView btnTL1, btnTL2, btnTL3;
     CountDownTimer t;
     SharedPreferences luudiemso;
     Random mrandom;
-    Typeface typeface;
     ArrayList<TextView> arrbtnDapAn;
     ArrayList<Integer> arrDapAn;
     ArrayList<Integer> listint;
