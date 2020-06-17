@@ -82,13 +82,14 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/button_about_main"
             android:text="HOME"
             android:textColor="#ffff"
             android:textSize="55sp"
             android:textStyle="bold"
             android:id="@+id/btnhome"/>
+
     </LinearLayout>
 
 </LinearLayout>

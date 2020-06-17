@@ -168,14 +168,12 @@ public class PlayChia extends AppCompatActivity {
 
     public void createquestion(int s1, int s2) {
         int dan1, dap2, stt;
-        String result = "";
         stt = mrandom.nextInt(3);
         do {
             number1 = mrandom.nextInt(s1);
-            while (number2 == 0) {
-                number2 = mrandom.nextInt(s2);
-            }
-        } while ((number1 % number2) != 0 || number1 < number2);
+            number2 = mrandom.nextInt(s2);
+
+        } while (number1 < number2 || number2 ==0 || number1%number2!=0);
         answer = number1 / number2;
         switch (stt) {
             case 0: {
@@ -206,8 +204,7 @@ public class PlayChia extends AppCompatActivity {
                 Toast.makeText(PlayChia.this, "Toang roi !", Toast.LENGTH_SHORT).show();
             }
         }
-        result = number1 + " ÷ " + number2 + " = ?";
-        txvPhepTinh.setText(result);
+        txvPhepTinh.setText(number1 + " ÷ " + number2 + " = ?");
         hienthidapan();
         settime();
 
@@ -236,10 +233,10 @@ public class PlayChia extends AppCompatActivity {
 
     public void cauhoi(int lv) {
         if (lv <= 10) {
-            createquestion(10, 10);
+            createquestion(30, 30);
         }
         if (lv > 10 && lv <= 20) {
-            createquestion(30, 30);
+            createquestion(50, 50);
         }
         if (lv > 20) {
             createquestion(100, 100);
@@ -257,6 +254,7 @@ public class PlayChia extends AppCompatActivity {
 
                 }
             }
+
             @Override
             public void onFinish() {
                 gameover(score, bestscoreCurrent);
