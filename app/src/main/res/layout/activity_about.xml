@@ -8,12 +8,18 @@
     android:scaleType="fitXY"
     android:orientation="vertical"
     tools:context=".AboutActivity">
-
+<Button
+    android:layout_width="60dp"
+    android:layout_height="60dp"
+    android:background="@drawable/btnback"
+    android:layout_marginTop="15dp"
+    android:layout_marginLeft="20dp"
+    android:onClick="btntback"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:text="CRAZY MATH"
         android:textColor="#D1F44336"
         android:textSize="55dp"
@@ -37,7 +43,7 @@
         android:layout_marginTop="40dp"
         android:text="Giáo viên hướng dẫn"
         android:textColor="#1A42E8"
-        android:textSize="30dp"
+        android:textSize="25dp"
         android:textStyle="bold" />
 
     <TextView
@@ -46,17 +52,17 @@
         android:layout_gravity="center"
         android:text="Trần Quốc Thịnh"
         android:textColor="#000000"
-        android:textSize="40dp"
+        android:textSize="35dp"
         android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:text="Sinh viên thực hiện"
         android:textColor="#1A42E8"
-        android:textSize="30dp"
+        android:textSize="25dp"
         android:textStyle="bold" />
 
     <TextView
@@ -65,7 +71,7 @@
         android:layout_gravity="center"
         android:text="Võ Phước Lợi"
         android:textColor="#000000"
-        android:textSize="40dp"
+        android:textSize="35dp"
         android:textStyle="bold" />
 
     <TextView
@@ -74,16 +80,7 @@
         android:layout_gravity="center"
         android:text="Nguyễn Duy Huỳnh"
         android:textColor="#000000"
-        android:textSize="40dp"
+        android:textSize="35dp"
         android:textStyle="bold" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="100dp"
-        android:text="Vĩnh Long, 6/2020"
-        android:textColor="#000000"
-        android:textSize="25dp"
-        android:textStyle="bold|italic" />
 </LinearLayout>
